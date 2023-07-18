@@ -28,6 +28,17 @@ CREATE TABLE Inscripciones
 );
 go
 
+CREATE TABLE Profesores
+(
+    Nombre VARCHAR(50) NOT NULL,
+    Apellido VARCHAR(50) NOT NULL,
+    Legajo INT NOT NULL PRIMARY KEY,
+    Direccion VARCHAR(100),
+    DNI INT NOT NULL,
+    Telefono VARCHAR(20)
+);
+go
+
 
 -- Cargar alumnos
 INSERT INTO Alumnos (Nombre, Apellido, DNI, Legajo, Direccion, FechaDeNacimiento, TelefonoResponsables) 
@@ -61,6 +72,24 @@ INSERT INTO Alumnos (Nombre, Apellido, DNI, Legajo, Direccion, FechaDeNacimiento
 VALUES ('Carmen', 'Morales', 123456, 12345678, 'Av. Belgrano 890, La Plata, Argentina', '2003-08-30', '+54 221 7890-123');
 go
 
+
+-- Cargar profesores
+INSERT INTO Profesores (Nombre, Apellido, Legajo, Direccion, DNI, Telefono)
+VALUES ('Pedro', 'González', 87654321, 'Av. Rivadavia 1234, Buenos Aires, Argentina', 2345678, '+54 11 1234-5678');
+
+INSERT INTO Profesores (Nombre, Apellido, Legajo, Direccion, DNI, Telefono)
+VALUES ('Luisa', 'Martínez', 98765432, 'Calle 9 de Julio 567, Córdoba, Argentina', 3456789, '+54 351 2345-6789');
+
+INSERT INTO Profesores (Nombre, Apellido, Legajo, Direccion, DNI, Telefono)
+VALUES ('Roberto', 'Rodríguez', 12345678, 'Av. Sarmiento 890, Mendoza, Argentina', 4567890, '+54 261 3456-7890');
+
+INSERT INTO Profesores (Nombre, Apellido, Legajo, Direccion, DNI, Telefono)
+VALUES ('Clara', 'Fernández', 23456789, 'Calle San Martín 901, Rosario, Argentina', 5678901, '+54 341 5678-9012');
+
+INSERT INTO Profesores (Nombre, Apellido, Legajo, Direccion, DNI, Telefono)
+VALUES ('Juan', 'Pérez', 34567890, 'Av. Pellegrini 234, Buenos Aires, Argentina', 6789012, '+54 11 2345-6789');
+go
+
 -- Cargar cursos
 INSERT INTO Cursos (IdentificadorCurso, NombreCurso, LegajoProfesor)
 VALUES (1234, 'Matemáticas', 87654321);
@@ -68,6 +97,8 @@ VALUES (1234, 'Matemáticas', 87654321);
 INSERT INTO Cursos (IdentificadorCurso, NombreCurso, LegajoProfesor)
 VALUES (2345, 'Lengua', 98765432);
 go
+
+
 
 -- Inscribir a más alumnos en el curso de Matemáticas (IdentificadorCurso = 1234)
 INSERT INTO Inscripciones (LegajoAlumno, IdentificadorCurso)
